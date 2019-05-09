@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    {% load static %}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book-Elakha-home</title>
+    <link rel="stylesheet" href="{% static 'assets/bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/fonts/font-awesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'https://fonts.googleapis.com/css?family=Adamina' %}">
+    <link rel="stylesheet" href="{% static 'https://fonts.googleapis.com/css?family=Aldrich' %}">
+    <link rel="stylesheet" href="{% static 'https://fonts.googleapis.com/css?family=Alegreya+Sans+SC' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/styles.min.css' %}">
+    <style>html, body { margin: 0; padding: 0; } body { min-height: 100vh; }</style>
+</head>
+
+<body style="background-image:url({% static 'assets/img/Book_Elakha.jpg'%});background-repeat:no-repeat;background-size:cover;">
+    <div style="background-image:url({% static 'assets/img/Book_Elakha.jpg'%});">
+        <nav class="navbar navbar-light navbar-expand-md navigation-clean-button" style="background-color:rgb(255,255,255);">
+            <div class="container"><a class="navbar-brand" href="#" style="font-family:Aldrich, sans-serif;font-size:25px;">Book-Elakha</a><button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+                <div
+                    class="collapse navbar-collapse" id="navcol-1">
+                    <ul class="nav navbar-nav mr-auto" style="padding-left:55%;">
+                        <li class="nav-item" role="presentation"><a class="nav-link" href="/libadmin " style="color:rgb(15,16,16);">Home</a></li>
+                        <li class="nav-item" role="presentation"><a class="nav-link" href="/libadmin/feedback" style="color:rgb(21,21,22);">Contact</a></li>
+                        <li class="dropdown"><a class="dropdown-toggle nav-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="#" style="color:rgb(26,28,29);">Login</a>
+                            <div class="dropdown-menu" role="menu"><a class="dropdown-item" role="presentation" href="/libadmin/login">Student</a><a class="dropdown-item" role="presentation" href="/admin">Admin</a></div>
+                        </li>
+                    </ul>
+            </div>
+    </div>
+    </nav>
+    </div>
+    <div class="jumbotron" style="background-color:rgb(255,255,255);margin:10%;">
+        <h1 style="font-family:Aldrich, sans-serif;">Book-Elakha</h1>
+        <p>Book-Elakha is a software built to handle primary housekeeping functions of a library.</p>
+    </div>
+    <div class="jumbotron" style="margin:10%;background-color:rgb(255,255,255);">
+        <p style="font-size:20px;color:rgb(0,0,0);font-family:Adamina, serif;">"If you read only the books that everyone else is reading, you can only think what every one else is thinking"</p>
+        <p style="font-size:20px;font-family:Adamina, serif;padding-left:75%;">-Book Elakha</p>
+    </div>
+    <script src="{% static 'assets/js/jquery.min.js' %}"></script>
+    <script src="{% static 'assets/bootstrap/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'assets/js/script.min.js' %}"></script>
+</body>
+
+</html>

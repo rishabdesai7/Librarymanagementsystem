@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    {% load static %}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book-Elakha-home</title>
+    <link rel="stylesheet" href="{% static 'assets/bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/fonts/font-awesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'https://fonts.googleapis.com/css?family=Adamina' %}">
+    <link rel="stylesheet" href="{% static 'https://fonts.googleapis.com/css?family=Aldrich' %}">
+    <link rel="stylesheet" href="{% static 'https://fonts.googleapis.com/css?family=Alegreya+Sans+SC' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/styles.min.css' %}">
+    <style>html, body { margin: 0; padding: 0; } body { min-height: 100vh; }</style>
+</head>
+
+<body style="background-image:url({% static 'assets/img/Book_Elakha.jpg' %});background-repeat:no-repeat;background-size:cover;">
+    <div></div>
+    <nav class="navbar navbar-light navbar-expand-md navigation-clean-button">
+        <div class="container"><a class="navbar-brand" href="#" style="font-size:25px;font-family:Aldrich, sans-serif;">Book-Elakha</a><button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div
+                class="collapse navbar-collapse" id="navcol-1">
+                <ul class="nav navbar-nav mr-auto" style="padding-left:50%;">
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="/libadmin">Home</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="/feedback">Contact</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="/libadmin/logout">Logout</a></li>
+                </ul>
+        </div>
+        </div>
+    </nav>
+    <div id="wrapper">
+        <div id="sidebar-wrapper" style="background-color:#ffffff;color:#000000;">
+            <ul class="sidebar-nav">
+                <li class="sidebar-brand"> <a href="/libadmin/sdash" style="color:#000000;">Home </a></li>
+                <li> <a href="/libadmin/books" style="color:#000000;">Books</a></li>
+                <li> <a href="/libsyllabus" style="color:#000000;">Syllabus</a></li>
+                <li> <a href="/libadmin/logout" style="color:#000000;">Log Out</a></li>
+            </ul>
+        </div>
+        <div class="page-content-wrapper">
+            <div class="container-fluid"><a class="btn btn-link" role="button" href="#menu-toggle" id="menu-toggle" style="color:#ffffff;font-size:24px;"><i class="fa fa-bars"></i></a></div>
+        </div>
+    </div>
+    <div class="jumbotron" style="background-color:rgb(255,255,255);margin-left:35%;margin-right:5%;margin-top:5%;">
+        <h1>syllabus</h1>
+        <p>Enter the semester number(1-8)</p>
+        <form action="/libsyllabus/populate" method = "GET">
+            <input name = "sem" class="form-control" type="number" style="width:25%;">
+            <button class="btn btn-primary" type="submit" style="margin-top:5%;margin-bottom:5%;">Submit</button>
+        </form>
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Syllabus</th>
+                        <th><a href = '/media/{{link}}'>{{link}}</a></th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Subject</th>
+                        <th>Text book</th>
+                        <th>E-Refernce</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for s in tb%}
+                    <tr>
+                        <td>{{s.subject}}</td>
+                        <td>{{s.textbook}}</td>
+                        <td>{{s.ebooks}}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <script src="{% static 'assets/js/jquery.min.js' %}"></script>
+    <script src="{% static 'assets/bootstrap/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'assets/js/script.min.js' %}"></script>
+</body>
+
+</html>

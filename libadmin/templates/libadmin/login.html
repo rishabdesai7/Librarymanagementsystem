@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    {% load static %}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book-Elakha-home</title>
+    <link rel="stylesheet" href="{% static 'assets/bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/fonts/font-awesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'https://fonts.googleapis.com/css?family=Adamina' %}">
+    <link rel="stylesheet" href="{% static 'https://fonts.googleapis.com/css?family=Aldrich' %}">
+    <link rel="stylesheet" href="{% static 'https://fonts.googleapis.com/css?family=Alegreya+Sans+SC' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/styles.min.css' %}">
+    <style>html, body { margin: 0; padding: 0; } body { min-height: 100vh; }</style>
+</head>
+
+<body style="background-image:url({% static 'assets/img/Book_Elakha.jpg' %});background-repeat:no-repeat;background-size:cover;">
+    <div>
+        <nav class="navbar navbar-light navbar-expand-md navigation-clean-button">
+            <div class="container"><a class="navbar-brand" href="#" style="font-size:25px;font-family:Aldrich, sans-serif;">Book-Elakha</a><button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+                <div
+                    class="collapse navbar-collapse" id="navcol-1">
+                    <ul class="nav navbar-nav mr-auto" style="margin-left:50%;">
+                        <li class="nav-item" role="presentation"><a class="nav-link" href="/libadmin">Home</a></li>
+                        <li class="nav-item" role="presentation"><a class="nav-link" href="/libadmin/feedback">Contact</a></li>
+                        <li class="dropdown"><a class="dropdown-toggle nav-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="#">Login</a>
+                            <div class="dropdown-menu" role="menu"><a class="dropdown-item" role="presentation" href="/libadmin/login">Student</a><a class="dropdown-item" role="presentation" href="/admin">Admin</a></div>
+                        </li>
+                    </ul>
+            </div>
+    </div>
+    </nav>
+    </div>
+    <div class="login-clean" style="background-color:rgba(0,0,0,0.1);">
+        <form method="post" action="/libadmin/auth">
+            {% csrf_token %}
+            <h1 style="font-family:'Alegreya Sans SC', sans-serif;">Sign-in</h1>
+            <p><b><font color="red">{{message}}</font></b></p>
+            <div class="form-group"><input class="form-control" type="email" name="id" placeholder="Email"></div>
+            <div class="form-group"><input class="form-control" type="password" name="password" placeholder="Password"></div>
+            <div class="form-group"><button class="btn btn-primary btn-block" type="submit">Log In</button></div>
+        </form>
+    </div>
+    <script src="{% static 'assets/js/jquery.min.js' %}"></script>
+    <script src="{% static 'assets/bootstrap/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'assets/js/script.min.js' %}"></script>
+</body>
+
+</html>

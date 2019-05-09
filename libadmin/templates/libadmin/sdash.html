@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    {% load static %}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book-Elakha-home</title>
+    <link rel="stylesheet" href="{% static 'assets/bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/fonts/font-awesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'https://fonts.googleapis.com/css?family=Adamina' %}">
+    <link rel="stylesheet" href="{% static 'https://fonts.googleapis.com/css?family=Aldrich' %}">
+    <link rel="stylesheet" href="{% static 'https://fonts.googleapis.com/css?family=Alegreya+Sans+SC' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/styles.min.css' %}">
+    <style>html, body { margin: 0; padding: 0; } body{ min-height: 100vh; }</style>
+</head>
+
+<body style="background-image:url({% static 'assets/img/Book_Elakha.jpg' %});background-repeat:no-repeat;background-size:cover;">
+    <div>
+        <nav class="navbar navbar-light navbar-expand-md navigation-clean-button">
+            <div class="container"><a class="navbar-brand" href="#" style="font-size:25px;font-family:Aldrich, sans-serif;">Book-Elakha</a><button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+                <div
+                    class="collapse navbar-collapse" id="navcol-1" >
+                    <ul class="nav navbar-nav mr-auto" style="padding-left:50%;">
+                        <li class="nav-item" role="presentation"><a class="nav-link" href="/libadmin">Home</a></li>
+                        <li class="nav-item" role="presentation"><a class="nav-link" href="/libadmin/feedback">Contact</a></li>
+                         <li class="nav-item" role="presentation"><a class="nav-link" href="/libadmin/logout">Logout</a></li>
+                        </li>
+                    </ul>
+            </div>
+    </div>
+    </nav>
+    {% if isactivated %}
+    </div>
+    <div id="wrapper">
+        <div id="sidebar-wrapper" style="background-color:#ffffff;">
+            <ul class="sidebar-nav">
+                <li class="sidebar-brand"> <a href="/libadmin/sdash" style="color:#222222;">Home </a></li>
+                <li> <a href="/libadmin/books" style="color:#222222;">Books</a></li>
+                <li> <a href="/libsyllabus" style="color:#222222;">Syllabus</a><a href="/libadmin/logout" style="color:#222222;">Log Out</a></li>
+                <li> </li>
+            </ul>
+        </div>
+        <div class="page-content-wrapper">
+            <div class="container-fluid"><a class="btn btn-link" role="button" href="#menu-toggle" id="menu-toggle" style="color:#f7f9fc;font-size:25px;"><i class="fa fa-bars" style="color:#ffffff;"></i></a></div>
+        </div>
+    </div>
+    <div class="jumbotron" style="margin-left:30%;margin-right:5%;background-color:#ffffff;">
+        <h1 style="font-family:Aldrich, sans-serif;">Dash Board :</h1>
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr></tr>
+                </thead>
+                <tbody>
+
+                    <tr>
+                        <td>Name</td>
+                        <td>{{mail}}</td>
+                    </tr>
+                    <tr>
+                        <td>ID</td>
+                        <td>{{id}}</td>
+                    </tr>
+                    <tr>
+                        <td>Department</td>
+                        <td>{{dept}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    {% else %}
+    <div class="jumbotron" style="margin-left:30%;margin-right:5%;margin-top:5%;background-color:#ffffff;">
+        <h4 style="font-family:Aldrich, sans-serif;">Your account is not activated, <br> To activate <a href="/libadmin/activate">Click here.</a></h4>
+        
+    </div>
+
+    {% endif %}
+
+    
+
+    <script src="{% static 'assets/js/jquery.min.js' %}"></script>
+    <script src="{% static 'assets/bootstrap/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'assets/js/script.min.js' %}"></script>
+</body>
+
+</html>

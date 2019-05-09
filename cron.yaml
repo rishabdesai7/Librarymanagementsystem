@@ -1,0 +1,4 @@
+cron:
+- description: "daily mail job"
+  url: /libadmin/cron
+  schedule: every 24 hours

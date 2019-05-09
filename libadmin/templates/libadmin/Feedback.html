@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    {% load static %}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book-Elakha-home</title>
+    <link rel="stylesheet" href="{% static 'assets/bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/fonts/font-awesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'https://fonts.googleapis.com/css?family=Adamina' %}">
+    <link rel="stylesheet" href="{% static 'https://fonts.googleapis.com/css?family=Aldrich' %}">
+    <link rel="stylesheet" href="{% static 'https://fonts.googleapis.com/css?family=Alegreya+Sans+SC' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/styles.min.css' %}">
+    <style>html, body { margin: 0; padding: 0; } body { min-height: 100vh; }</style>
+</head>
+
+<body style="background-image:url({% static 'assets/img/Book_Elakha.jpg' %});background-repeat:no-repeat;background-size:cover;">
+    <nav class="navbar navbar-light navbar-expand-md navigation-clean-button">
+        <div class="container"><a class="navbar-brand" href="#" style="font-size:25px;font-family:Aldrich, sans-serif;">Book-Elakha</a>
+        </div>
+    </nav>
+    
+    
+    <div class="jumbotron" style="background-color:rgb(255,255,255);margin-left:30%;margin-right: 10%;margin-top: 10%">
+        <p style="font-family:Aldrich, sans-serif;margin-left:30%;margin-right: 10%;margin-top: 10%"><b>Cvr college of engineering<br>Ibrahimpatnam<br>9618035258</b></p>
+        <p style="font-family:Aldrich, sans-serif;margin-left:30%;margin-right: 10%;margin-top: 10%">To home page :<br><a class="nav-link"  href="/libadmin">Click here</a></p>
+    </div>
+    <div id="wrapper"></div>
+    <script src="{ % static 'assets/js/jquery.min.js' %}"></script>
+    <script src="{% static 'assets/bootstrap/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'assets/js/script.min.js' %}"></script>
+</body>
+
+</html>
