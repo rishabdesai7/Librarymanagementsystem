@@ -19,7 +19,7 @@ try:
             k = Luser.objects.get(username=k)
             s = Syllabus.objects.get(dept=k.dept, sem=sem)
             tb = (Textbooks.objects.all().filter(dept=k.dept, sem=sem))
-            return syllabus(req, {'link': s.syllabus, 'tb': tb,'mail':k.username})
+            return syllabus(req,{'link': s.syllabus.url,'show':s.syllabus,'link1':s.coursefile.url,'show1':s.coursefile,'tb': tb,'mail':k.username})
         except:
             return syllabus(req)
 finally:

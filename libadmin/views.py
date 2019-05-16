@@ -26,6 +26,8 @@ def home(req):
 
 
 def login(request, msg=''):
+    if request.user.is_authenticated:
+        return dashboard(request,'already logged in')
     return render(request, 'libadmin/login.html', {'message': msg})
 
 
@@ -42,18 +44,21 @@ def auth(request):
     return login(request, 'Invalid Credentails')
 
 
-def dashboard(request):
+def dashboard(request,msg = ''):
     if request.user.is_authenticated:
+        print(msg)
         k = User.objects.get(username=request.user.username)
         try:
             k = Luser.objects.get(username=k)
         except Exception:
-            return login(request,'Invalid Credentails')
+            logout(request)
+            return login(request)
         content = {
             'id': k.uid,
             'dept': k.dept,
             'mail': k.username,
-            'isactivated': k.isactivated
+            'isactivated': k.isactivated,
+            'user' : request.user.username
         }
         return render(request, 'libadmin/sdash.html', content)
     return login(request, 'Invalid Credentails')
@@ -80,8 +85,17 @@ def cron(req):
     d = datetime.date.today() + datetime.timedelta(days=1)
     books = list(Book.objects.all())
     for x in books:
-        if x.rdate == d:
+
+        if x.issued and x.rdate == d:
             sendmail(x.uid.username.username, "hey dude ! please renew " + x.name)
+        if x.issued:
+            x._recurpre=True
+            fine = (datetime.date.today() - x.rdate).days
+            if fine > 0:
+                fine *= 2
+                x.fine = fine
+                x.save()
+                del x._recurpre
     return HttpResponse(content=200)
 
 

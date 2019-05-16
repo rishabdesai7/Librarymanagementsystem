@@ -3,6 +3,7 @@
 
 <head>
     {% load static %}
+    {% load tags %}
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Book-Elakha-home</title>
@@ -30,9 +31,6 @@
             <div
                 class="collapse navbar-collapse" id="navcol-1">
                 <ul class="nav navbar-nav mr-auto" style="padding-left:50%;">
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="/libadmin">Home</a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="/libadmin/feedback">Contact</a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="/libadmin/logout">Logout</a></li>
                 </ul>
         </div>
         </div>
@@ -70,7 +68,13 @@
                         <td>{{b.name}}</td>
                         <td>{{b.idate}}</td>
                         <td>{{b.rdate}}</td>
-                        <td><a href="/libadmin/renew/{{b.bid}}">click here</a></td>
+                        <td>
+                                {% isenabled b.rdate as temp %}
+                                {% if temp %}
+                                <a href="/libadmin/renew/{{b.bid}}">click here</a>
+                                {% endif %}
+
+                        </td>
                     </tr>
                 {% endfor %}
                 </tbody>

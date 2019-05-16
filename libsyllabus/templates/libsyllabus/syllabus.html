@@ -22,9 +22,6 @@
             <div
                 class="collapse navbar-collapse" id="navcol-1">
                 <ul class="nav navbar-nav mr-auto" style="padding-left:50%;">
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="/libadmin">Home</a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="/feedback">Contact</a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="/libadmin/logout">Logout</a></li>
                 </ul>
         </div>
         </div>
@@ -54,7 +51,17 @@
                 <thead>
                     <tr>
                         <th>Syllabus</th>
-                        <th><a href = '/media/{{link}}'>{{link}}</a></th>
+                        <th><a href = '{{link}}'>{{show}}</a></th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>CourseFile</th>
+                        <th><a href = '{{link1}}'>{{show1}}</a></th>
                     </tr>
                 </thead>
             </table>
@@ -73,7 +80,7 @@
                     <tr>
                         <td>{{s.subject}}</td>
                         <td>{{s.textbook}}</td>
-                        <td>{{s.ebooks}}</td>
+                        <td><a href = {{s.ebooks}}>{{s.ebooks}}</a></td>
                     </tr>
                 {% endfor %}
                 </tbody>

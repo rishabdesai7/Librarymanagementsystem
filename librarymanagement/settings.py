@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'gdstorage',
 ]
 
 MIDDLEWARE = [
@@ -92,7 +93,7 @@ if os.getenv('GAE_APPLICATION', None):
             'HOST': '/cloudsql/inventory-236206:asia-southeast1:library',
             'USER': 'rishab',
             'PASSWORD': 'Rishab@98',
-            'NAME': 'Rishab',
+            'NAME': 'library',
         }
     }
 else:
@@ -105,7 +106,7 @@ else:
             'ENGINE': 'django.db.backends.mysql',
             'HOST': '127.0.0.1',
             'PORT': '3307',
-            'NAME': 'Rishab',
+            'NAME': 'library',
             'USER': 'rishab',
             'PASSWORD': 'Rishab@98',
         }
@@ -170,3 +171,7 @@ DEFAULT_FROM_EMAIL = 'bookelakha@gmail.com'
 
 
 MESSAGE_STORAGE = 'django.contrib.messages.storage.cookie.CookieStorage'
+
+
+
+GOOGLE_DRIVE_STORAGE_JSON_KEY_FILE = 'librarymanagement/inventory-236206-6dbddcb9c367.json'
